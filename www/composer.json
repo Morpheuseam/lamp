@@ -1,0 +1,6 @@
+{
+    "require": {
+        "slim/slim": "^3.11",
+        "phpunit/phpunit": "3.7.*"
+    }
+}
