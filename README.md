@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # How to run #
 
 Dependencies:
@@ -60,6 +59,3 @@ http://localhost:8001/routes/rest.php/payment-orders{id-payment}
 ## Call sample for Boleto ##
 
 ## Call sample for Credit Card ##
-=======
-# wirecard-challenge
->>>>>>> b6bce00ed485cf3f37b24da24ca73393f77b88d0
