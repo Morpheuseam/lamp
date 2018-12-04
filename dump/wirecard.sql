@@ -98,7 +98,8 @@ CREATE TABLE `payment` (
   `type` varchar(15) NOT NULL,
   `card_id` int(11) DEFAULT NULL,
   `boleto_id` int(11) DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0-> Waiting payment / 1 -> Approved'
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0-> Waiting payment / 1 -> Approved',
+   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
