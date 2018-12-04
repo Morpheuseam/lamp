@@ -15,7 +15,7 @@ Service|Address
 ------|---------
 Apache|**host:** `localhost`; **port:** `8801`
 MySQL 5.7|**host:** `localhost`; **port:** `8890`
-PhpMyAdmin|**host:** `localhost`; **port:** `8000`
+PhpMyAdmin|**host:** `localhost`; **port:** `8000`; **user:** `user`; **pass:** `test`
 
 ## Hosts within your environment ##
 
