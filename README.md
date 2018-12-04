@@ -28,9 +28,9 @@ php-fpm|php-fpm|9000
 ## Design and external plugins ##
 Plugin|Version|Usage
 ------|---------|---------
+Bootstrap|3.0|Stylesheet
 Jquery|3.3.1|--
 Slim Framework|3.0|API REST
-Bootstrap|3.0|Stylesheet
 jQuery.payment|1.7.1|Validate credit card
 JQuery Validate|1.13.1|Validate form
 
