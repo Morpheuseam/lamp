@@ -42,7 +42,7 @@ All calls are required to access token information for security reasons. You can
 ```
 http://localhost:8001/routes/rest.php/auth?{credentials}
 ```
-Search for all purchases made by certain customer ID. The call must be made to the URL below using the POST method. 
+The URL below searches for all purchases made by a particular customer ID. The call must be made to the URL below using the POST method.
 ```
 http://localhost:8001/routes/rest.php/notification?{id-customer}
 ```
