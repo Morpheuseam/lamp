@@ -58,20 +58,20 @@ http://localhost:8001/routes/rest.php/payment-orders{id-payment}
 
 ## Call sample for Boleto ##
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
-&buyerName=vitor f cazelatto  
+&buyerName=Elon Musk  
 &buyerCpf=38817707805  
-&buyerEmail=vitorcazelatto@gmail.com  
+&buyerEmail=email@spacex.com  
 &paymentType=boleto  
-&price=259.99  
+&price=2599.99  
 
 ## Call sample for Credit Card ##
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
-&buyerName=vitor f cazelatto  
+&buyerName=Elon Musk  
 &buyerCpf=38817707805  
-&buyerEmail=vitorcazelatto@gmail.com  
+&buyerEmail=email@spacex.com  
 &paymentType=creditCard  
-&price=259.99  
-&cardName=VITOR  F CAZELATTO  
+&price=2599.99  
+&cardName=ELON MUSK  
 &cardNumber=4111111111111111  
 &cardExpiry=12/2030  
 &cardCVV=12
