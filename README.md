@@ -57,5 +57,21 @@ http://localhost:8001/routes/rest.php/payment-orders{id-payment}
 ```
 
 ## Call sample for Boleto ##
+token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
+&buyerName=vitor f cazelatto  
+&buyerCpf=38817707805  
+&buyerEmail=vitorcazelatto@gmail.com  
+&paymentType=boleto  
+&price=259.99  
 
 ## Call sample for Credit Card ##
+token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
+&buyerName=vitor f cazelatto  
+&buyerCpf=38817707805  
+&buyerEmail=vitorcazelatto@gmail.com  
+&paymentType=creditCard  
+&price=259.99  
+&cardName=VITOR  F CAZELATTO  
+&cardNumber=4111111111111111  
+&cardExpiry=12/2030  
+&cardCVV=12
