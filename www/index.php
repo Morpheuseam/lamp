@@ -277,18 +277,20 @@ $_SESSION['id'] = base64_encode(session_id()); // Create token for test
                         dataType: 'json',
                         url: 'routes/rest.php/transaction',
                         success: function (data) {
-                            $('#rest-result').append('Result:\n');
-                            print_result_area(data);
+				if(data.erro == false){
+					$('#rest-result').append('Result:\n');
+					    print_result_area(data);
 
 
-                            $form.find('.subscribe').html('Submit').prop('disabled', false);
-                            $('#payment-content').hide();
-                            //$form[0].reset();
+					    $form.find('.subscribe').html('Submit').prop('disabled', false);
+					    $('#payment-content').hide();
+					    $form[0].reset();
 
-                            if (data.erro == false) {
-                                $('#rest-result').append('Searching for customer purchase data... :\n');
-                                info_client_pays(data.id);
-                            }
+					    if (data.erro == false) {
+						$('#rest-result').append('Searching for customer purchase data... :\n');
+						info_client_pays(data.id);
+					    }
+				}
                         }
                     });
                 }
