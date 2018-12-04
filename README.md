@@ -42,11 +42,6 @@ All calls are required to access token information for security reasons. You can
 ```
 http://localhost:8001/routes/rest.php/auth?{credentials}
 ```
-
-After obtaining the payment data, you must place the call to the transparent checkout service by sending the buyer and payment data to pay for it. The call must be made to the URL below using the POST method.  
-```
-http://localhost:8001/routes/rest.php/transaction?{credentials}
-```
 This URL is recorded as a payment purchase for the customer ID. The call must be made to the URL below using the POST method.  
 ```
 http://localhost:8001/routes/rest.php/notification?{id-customer}
@@ -54,6 +49,10 @@ http://localhost:8001/routes/rest.php/notification?{id-customer}
 This URL is recorded as a payment purchase for the payment ID. The call must be made to the URL below using the POST method.  
 ```
 http://localhost:8001/routes/rest.php/payment-orders{id-payment}
+```
+After obtaining the payment data, you must place the call to the transparent checkout service by sending the buyer and payment data to pay for it. The call must be made to the URL below using the POST method.  
+```
+http://localhost:8001/routes/rest.php/transaction?{credentials}
 ```
 
 ## Call sample for Boleto ##
