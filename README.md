@@ -63,7 +63,7 @@ token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=
 
 The URL below searches for a card brand. The call must be made to the URL below using the POST method.  
 ```
-http://localhost:8001/routes/rest.php/card-bran{credentials}
+http://localhost:8001/routes/rest.php/card-brand{credentials}
 ```
 * Call sample for Card Brand:  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
