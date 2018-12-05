@@ -5,9 +5,6 @@
  *
  * This file contains the credit card number validation class.
  *
- * @package  ADirectRide
- * @access   public
- * @author   Vagharshak Tozalakyan <vagh@tozalakyan.com>
  */
 /**
  * MasterCard type
