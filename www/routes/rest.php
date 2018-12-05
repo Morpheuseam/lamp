@@ -18,9 +18,8 @@ function __autoload($class) {
 
 $app = new \Slim\App($config);
 
-require_once '../middlewares/mid01.php';
+require_once '../middlewares/mid01.php'; // Middleware route
 
 require_once 'post.php'; // routes post
 
-
-$app->run();
+$app->run(); // Run REST
