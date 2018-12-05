@@ -6,6 +6,12 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require_once "../model/Connect.php";
 require_once "../model/Api.php";
 
+/* Routes that have $app->add($mid01) (middleware/) require the token parameter */
+
+/* Auth request REST API (INSTANCE TOKEN USER)
+   http://localhost:8001/routes/rest.php/auth?{credentials}
+*/
+
 $app->post('/auth', function (Request $request, Response $response) {
     $token = $request->getParam('token');
     if ($token == '' || $token == null || empty($token)) {
@@ -27,6 +33,9 @@ $app->post('/auth', function (Request $request, Response $response) {
     return $response;
 });
 
+/* Transaction request REST API 
+   http://localhost:8001/routes/rest.php/transaction?{credentials}
+*/
 $app->post('/transaction', function (Request $request, Response $response) {
     $token = trim(strip_tags($request->getParam('token')));
     
@@ -165,6 +174,9 @@ $app->post('/transaction', function (Request $request, Response $response) {
     return $response;
 })->add($mid01);
 
+/*  Notification request REST API 
+    http://localhost:8001/routes/rest.php/notification?{credentials}
+*/
 $app->post('/notification', function (Request $request, Response $response) {
     $token = $request->getParam('token');
     $id = $request->getParam('id');
@@ -202,7 +214,9 @@ $app->post('/notification', function (Request $request, Response $response) {
     return $response;
 })->add($mid01);
 
-
+/* Get Card Brand request REST API 
+   http://localhost:8001/routes/rest.php/card-bran?{credentials}
+*/
 $app->post('/card-brand', function (Request $request, Response $response) {
 	$api = new Api();
 	$number = preg_replace('/\s+/', '', trim(strip_tags($request->getParam('number'))));
@@ -223,7 +237,10 @@ $app->post('/card-brand', function (Request $request, Response $response) {
 	
 	return $response;
 })->add($mid01);
-	
+
+/* Payment Order request REST API 
+   http://localhost:8001/routes/rest.php/payment-orders{credentials}
+*/
 $app->post('/payment-order', function (Request $request, Response $response) {
     $token = $request->getParam('token');
     $id = $request->getParam('id');
