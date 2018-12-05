@@ -58,10 +58,10 @@ After obtaining the payment data, you must place the call to the transparent che
 ```
 http://localhost:8001/routes/rest.php/transaction?{credentials}
 ```
-# Call sample for Authentication #
+* Call sample for Authentication
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=
 
-# Call sample for Notification #
+* Call sample for Notification
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
