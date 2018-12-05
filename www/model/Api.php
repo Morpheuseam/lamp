@@ -49,7 +49,7 @@ class Api extends Connect {
      * @param varchar $email => Email Client
      * @param varchar $cpf => CPF Client
      * @param varchar $type => Payment type
-     * @param json $card_json => JSON Card informations
+     * @param text $card_json => JSON Card informations
      */
 
     private function new_transaction($client_id, $name, $email, $cpf, $type, $price, $buyerId, $cardName, $cardNumber, $cardExpiry, $cardCVV) {
@@ -143,7 +143,10 @@ class Api extends Connect {
                 WHERE client.id = ?";
         return parent::selectDB($sql, $data);
     }
-
+    
+    /* Search info pay client 
+        @param int $id => ID Payment Order
+    */
     public function infoPayOrder($id) {
         $data = array($id);
         $sql = "SELECT 
@@ -158,7 +161,11 @@ class Api extends Connect {
                 WHERE payment.id = ?";
         return parent::selectDB($sql, $data);
     }
-
+    
+     /* Detect card brand
+     @param int $number => Number credit card
+     @param boolean $string [optional] => return int/text value brand
+    */
     public function validateBrand($number, $string = null) {
         if (empty($number)) {
             return false;
@@ -171,14 +178,14 @@ class Api extends Connect {
                 'visa' => '/^4[0-9]{12}(?:[0-9]{3})?$/',
                 'master card' => '/^5[1-5][0-9]{14}$/',
                 'american express' => '/^3[47][0-9]{13}$/',
-                'diners club' => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
+                'diners' => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
                 'discover' => '/^6(?:011|5[0-9]{2})[0-9]{12}$/',
                 'jcb' => '/^(?:2131|1800|35\d{3})\d{11}$/',
-				'amex'       => '/^3[47]\d{13}$/',
-				'aura'       => '/^(5078\d{2})(\d{2})(\d{11})$/',
-				'hipercard'  => '/^(606282\d{10}(\d{3})?)|(3841\d{15})$/',
-				'elo'    => '/^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/',
-				'other' => '/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/',
+		'amex'       => '/^3[47]\d{13}$/',
+		'aura'       => '/^(5078\d{2})(\d{2})(\d{11})$/',
+		'hipercard'  => '/^(606282\d{10}(\d{3})?)|(3841\d{15})$/',
+		'elo'    => '/^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/',
+		'other' => '/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/',
             ];
         } else {
             $matchingPatterns = [
@@ -188,10 +195,10 @@ class Api extends Connect {
                 '3' => '/^3(?:0[0-5]|[68][0-9])[0-9]{11}$/',
                 '4' => '/^6(?:011|5[0-9]{2})[0-9]{12}$/',
                 '5' => '/^(?:2131|1800|35\d{3})\d{11}$/',
-				'6'       => '/^3[47]\d{13}$/',
-				'7'       => '/^(5078\d{2})(\d{2})(\d{11})$/',
-				'8'  => '/^(606282\d{10}(\d{3})?)|(3841\d{15})$/',
-				'9'    => '/^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/',
+		'6'       => '/^3[47]\d{13}$/',
+		'7'       => '/^(5078\d{2})(\d{2})(\d{11})$/',
+		'8'  => '/^(606282\d{10}(\d{3})?)|(3841\d{15})$/',
+		'9'    => '/^(?:5[0678]\d\d|6304|6390|67\d\d)\d{8,15}$/',
                 '10' => '/^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/'
             ];
         }
@@ -205,24 +212,25 @@ class Api extends Connect {
             $ctr++;
         }
     }
-
+    
+    /* Validate CPF
+       @param varchar $cpf => CPF number
+    */
     public function validateCPF($cpf = null) {
 
-        // Verifica se um número foi informado
+        // Checks if a number has been reported
         if (empty($cpf)) {
             return false;
         }
 
-        // Elimina possivel mascara
+        // Remove possible mask
         $cpf = preg_replace("/[^0-9]/", "", $cpf);
         $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
 
-        // Verifica se o numero de digitos informados é igual a 11 
+        // Checks if the number of digits entered is equal to 11
         if (strlen($cpf) != 11) {
             return false;
         }
-        // Verifica se nenhuma das sequências invalidas abaixo 
-        // foi digitada. Caso afirmativo, retorna falso
         else if ($cpf == '00000000000' ||
                 $cpf == '11111111111' ||
                 $cpf == '22222222222' ||
@@ -234,12 +242,9 @@ class Api extends Connect {
                 $cpf == '88888888888' ||
                 $cpf == '99999999999') {
             return false;
-            // Calcula os digitos verificadores para verificar se o
-            // CPF é válido
+            // Calculate the verification digits to verify that the CPF is valid
         } else {
-
             for ($t = 9; $t < 11; $t++) {
-
                 for ($d = 0, $c = 0; $c < $t; $c++) {
                     $d += $cpf{$c} * (($t + 1) - $c);
                 }
@@ -248,7 +253,6 @@ class Api extends Connect {
                     return false;
                 }
             }
-
             return true;
         }
     }
