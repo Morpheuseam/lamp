@@ -49,31 +49,30 @@ The URL below searches for all purchases made by a particular customer ID. The c
 ```
 http://localhost:8001/routes/rest.php/notification?{credentials}
 ```
-The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
-```
-http://localhost:8001/routes/rest.php/payment-orders{credentials}
-```
-The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
-```
-http://localhost:8001/routes/rest.php/card-bran{credentials}
-```
-After obtaining the payment data, you must place the call to the transparent checkout service by sending the buyer and payment data to pay for it. The call must be made to the URL below using the POST method.  
-```
-http://localhost:8001/routes/rest.php/transaction?{credentials}
-```
-
 * Call sample for Notification  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
+The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
+```
+http://localhost:8001/routes/rest.php/payment-orders{credentials}
+```
 * Call sample for Payment Order  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
+The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
+```
+http://localhost:8001/routes/rest.php/card-bran{credentials}
+```
 * Call sample for Card Brand  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &number=4111111111111111
 
+After obtaining the payment data, you must place the call to the transparent checkout service by sending the buyer and payment data to pay for it. The call must be made to the URL below using the POST method.  
+```
+http://localhost:8001/routes/rest.php/transaction?{credentials}
+```
 * Call sample for Boleto  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &buyerName=Elon Musk  
