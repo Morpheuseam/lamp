@@ -1,25 +1,21 @@
 <?php
-
-/**
- * Description of Connect
- *
+/*
  * @author Vitor Fernandes Cazelatto
+ * abstract class Connect to database
  */
-abstract class Connect {
-    /* Método construtor do banco de dados */
 
+abstract class Connect {
+    /* construct method */
     private function __construct() {
         
     }
 
-    /* Evita que a classe seja clonada */
-
+    /* clone method */
     private function __clone() {
         
     }
 
-    /* Método que destroi a conexão com banco de dados e remove da memória todas as variáveis setadas */
-
+    /* destruct method */
     public function __destruct() {
         $this->disconnect();
         foreach ($this as $key => $value) {
@@ -27,17 +23,12 @@ abstract class Connect {
         }
     }
 
-    /* OFF-LINE */
-
     private static $dbtype = "mysql";
-	private static $port = "3306";
+    private static $port = "3306";
     private static $host = "db";
     private static $user = "user";
     private static $password = "test";
     private static $db = "wirecard";
-
-    /* Metodos que trazem o conteudo da variavel desejada
-      @return   $xxx = conteudo da variavel solicitada */
 
     private function getDBType() {
         return self::$dbtype;
@@ -62,7 +53,8 @@ abstract class Connect {
     private function getDB() {
         return self::$db;
     }
-
+    
+    /* connect to database */
     private function connect() {
         try {
             $this->conexao = new PDO($this->getDBType() . ":host=" . $this->getHost() . ";port=" . $this->getPort() . ";dbname=" . $this->getDB(), $this->getUser(), $this->getPassword());
@@ -78,8 +70,10 @@ abstract class Connect {
         $this->conexao = null;
     }
 
-    /* Método select que retorna um VO ou um array de objetos */
-
+    /* select method 
+    @param string $sql => SQL Query
+    @param array $params [optional] => Params query
+    */
     public function selectDB($sql, $params = null, $class = null) {
         $query = $this->connect()->prepare($sql);
         $query->execute($params);
@@ -94,8 +88,10 @@ abstract class Connect {
         return $rs;
     }
 
-    /* Método insert que insere valores no banco de dados e retorna o último id inserido */
-
+    /* insert method 
+    @param string $sql => SQL Query
+    @param array $params [optional] => Params query
+    */
     public function insertDB($sql, $params = null) {
         $conexao = $this->connect();
         $query = $conexao->prepare($sql);
@@ -105,8 +101,10 @@ abstract class Connect {
         return $rs;
     }
 
-    /* Método update que altera valores do banco de dados e retorna o número de linhas afetadas */
-
+   /* update method 
+    @param string $sql => SQL Query
+    @param array $params [optional] => Params query
+    */
     public function updateDB($sql, $params = null) {
         $query = $this->connect()->prepare($sql);
         if (!$query->execute($params)) {
@@ -118,8 +116,10 @@ abstract class Connect {
         return $rs;
     }
 
-    /* Método delete que excluí valores do banco de dados retorna o número de linhas afetadas */
-
+   /* delete method 
+    @param string $sql => SQL Query
+    @param array $params [optional] => Params query
+    */
     public function deleteDB($sql, $params = null) {
         $query = $this->connect()->prepare($sql);
         $query->execute($params);
