@@ -53,7 +53,7 @@ http://localhost:8001/routes/rest.php/notification?{credentials}
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
-The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
+The URL below searches for a particular payment order. The call must be made to the URL below using the POST method.  
 ```
 http://localhost:8001/routes/rest.php/payment-orders{credentials}
 ```
@@ -61,7 +61,7 @@ http://localhost:8001/routes/rest.php/payment-orders{credentials}
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
-The URL below searches for a particular customer purchase. The call must be made to the URL below using the POST method.  
+The URL below searches for a card brand. The call must be made to the URL below using the POST method.  
 ```
 http://localhost:8001/routes/rest.php/card-bran{credentials}
 ```
