@@ -167,7 +167,7 @@ $app->post('/transaction', function (Request $request, Response $response) {
             $response = $response->withJson([
                 "erro" => true,
                 "msg" => 'Error'
-                    ], 200, JSON_UNESCAPED_UNICODE);
+                    ], 401, JSON_UNESCAPED_UNICODE);
         }
     }
 
