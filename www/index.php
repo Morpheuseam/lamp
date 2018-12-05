@@ -1,8 +1,6 @@
 <?php
 session_start();
 $_SESSION['id'] = base64_encode(session_id()); // Create token for test
-
-ob_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -177,6 +175,3 @@ ob_start();
         <script src="scripts/scripts.bundle.min.js?v=1.0"></script>
     </body>
 </html>
-<?php
-$html = ob_get_clean();
-echo preg_replace('/\s+/', ' ', $html);
