@@ -42,6 +42,9 @@ All calls are required to access token information for security reasons. You can
 ```
 http://localhost:8001/routes/rest.php/auth?{credentials}
 ```
+* Call sample for Authentication  
+token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=
+
 The URL below searches for all purchases made by a particular customer ID. The call must be made to the URL below using the POST method.
 ```
 http://localhost:8001/routes/rest.php/notification?{credentials}
@@ -58,22 +61,20 @@ After obtaining the payment data, you must place the call to the transparent che
 ```
 http://localhost:8001/routes/rest.php/transaction?{credentials}
 ```
-* Call sample for Authentication
-token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=
 
-* Call sample for Notification
+* Call sample for Notification  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
-## Call sample for Payment Order ##
+* Call sample for Payment Order  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &id=1
 
-## Call sample for Card Brand ##
+* Call sample for Card Brand  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &number=4111111111111111
 
-## Call sample for Boleto ##
+* Call sample for Boleto  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &buyerName=Elon Musk  
 &buyerCpf=38817707805  
@@ -81,7 +82,7 @@ token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=
 &paymentType=boleto  
 &price=2599.99  
 
-## Call sample for Credit Card ##
+* Call sample for Credit Card  
 token=bDAxMjkzMHV0ZzRxcHRpYzFuN2l1YWNrMzY=  
 &buyerName=Elon Musk  
 &buyerCpf=38817707805  
