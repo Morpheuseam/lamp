@@ -1,6 +1,6 @@
 # PHP + Docker + Linux + PHPMyAdmin # 
 
-# How to run #
+## How to run ##
 
 Dependencies:
 
